@@ -1,0 +1,399 @@
+html {
+    /* colocando isso fica mais facil de trabalhar com "rem" --EXEMPLO-- 
+    ( 1.6rem = 16px e 2rem = 20px )*/
+    font-size: 62.5%;
+    background: #191919;
+    /* DEIXA O SCROLL MAIS SUAVE */
+    scroll-behavior: smooth;
+}
+
+body {
+    /* temos q criar nss estrutura de linhas e colunas no body,ultilizando o grid */
+    display: grid;
+    grid-template-areas: "header header header header"
+        "hero hero hero hero"
+        "about about about about"
+        "services services services services"
+        "projects projects projects projects"
+        "footer footer footer footer";
+    grid-template-columns: repeat(4, 1fr);
+    font-size: 1.6rem;
+    font-family: 'roboto', sans-serif;
+    font-weight: 400;
+}
+
+/* HEADER */
+.header {
+    grid-area: header;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+.header .header-container {
+    display: flex;
+    padding: 20px 40px;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 75px;
+}
+
+.header .header-container span {
+    color: #f9004d;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.header a:hover h1 {
+    color: #f9004d;
+    transition: 0.3s;
+}
+
+/* HERO */
+.hero {
+    grid-area: hero;
+    height: 89vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #191919;
+}
+
+.hero p {
+    color: #fff;
+}
+
+.hero h2 {
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 10%;
+    font-size: 4rem;
+    color: orange;
+}
+
+/* --CRIANDO A ANIMAÇÃO DA SETA-- */
+.hero::after {
+    content: url('../img/seta_preta.png');
+    position: absolute;
+    height: 35px;
+    bottom: 40px;
+    animation: seta 0.6s infinite alternate ease-in-out;
+}
+
+@-webkit-keyframes seta {
+    0% {
+        -webkit-transform: translateY(0);
+        opacity: 0.4;
+    }
+
+    100% {
+        -webkit-transform: translateY(0.4em);
+        opacity: 0.9;
+    }
+}
+
+@media(max-width: 425px) {
+    .hero {
+        height: 60vh;
+    }
+
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+}
+
+/* ABOUT */
+.about {
+    grid-area: about;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: var(--max-width-size);
+    margin: 0 auto;
+    background-color: #000;
+}
+
+.about .item {
+    padding: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.about .item h3 {
+    color: #f9004d;
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.about .item p {
+    font-size: 1.9rem;
+    margin: 30px 0;
+    font-weight: 400;
+    line-height: 25px;
+    color: #fff;
+}
+
+.about .item .btn-acessar {
+    color: #fff;
+  background-color: #f9004d;
+    border-radius: 7px;
+    padding: 3px 30px;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.about .item .btn-acessar:hover {
+    background-color: #ffff;
+    color: #000;
+}
+
+.about .image {
+    height: 100%;
+    width: 100%;
+}
+
+.image.right {
+    background: url('../img/certificado.jpg') center center no-repeat;
+}
+
+.about .image.left {
+    background: url('../video/video.mp4') center center no-repeat;
+    background-size: cover;
+}
+
+@media(max-width: 425px) {
+    .about .item a {
+        text-align: center;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+    }
+}
+
+/* SERVICES */
+.services {
+    grid-area: services;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.services .service {
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.services .service img {
+    width: 250px;
+    margin-bottom: 30px;
+}
+
+.services .service .foto-quem-sou {
+    width: 250px;
+    border-radius: 10px;
+
+}
+
+.services .service h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.services .service p {
+    font-size: 2rem;
+    font-weight: 400;
+    max-width: 400px;
+    margin: 20px auto 0;
+    line-height: 25px;
+}
+
+.services-info {
+    font-weight: bold;
+    line-height: 10px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.services .service:nth-child(1) {
+    background-color: rgb(79, 189, 125);
+}
+
+.services .service:nth-child(2) {
+    background-color: #000;
+}
+
+@media(max-width: 425px) {
+    .services {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* PROJECTS */
+.projects {
+    grid-area: projects;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: 1150px;
+    background-color: #000;
+}
+
+.projects img {
+    height: 100%;
+    transition: 0.5s;
+}
+
+.projects a:hover {
+    opacity: 0.8;
+}
+
+.projects .project1 h2 {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 50px;
+}
+
+.card {
+    background-color: #191919;
+    width: 335px;
+    border-radius: 20px;
+    padding: 20px 35px;
+    text-align: center;
+}
+
+.card img {
+    height: 100px;
+}
+
+.card h5 {
+    color: white;
+    font-size: 25px;
+}
+
+.card p {
+    color: #ec97b2;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.card a {
+    background-color: #f9004d;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.card a:hover {
+    background-color: transparent;
+    border: 2px solid #f9004d;
+}
+
+.card-projetos {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px;
+    background: url(https://i.pinimg.com/originals/63/24/3a/63243aacfe563f25e472f9e187723df1.gif) center center no-repeat;
+    background-size: cover;
+}
+
+.card .xxx {
+    border-radius: 100px;
+    margin-bottom: 10px;
+}
+
+.cafe {
+    border-radius: 15px;
+    background: #000000;
+}
+
+.menu-img {
+    border-radius: 15px;
+    background: #000000;
+    margin-bottom: 10px;
+}
+
+@media(max-width: 768px) {
+    .projects {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+}
+
+@media(max-width: 425px) {
+    .projects {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+    }
+}
+
+/*FOOTER  */
+.footer {
+    grid-area: footer;
+    display: flex;
+    background-color: #191919;
+    flex-direction: column;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.footer h4 {
+    color: #f9004d;
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.footer h4 span {
+    color: #fff;
+}
+
+.footer nav {
+    margin: 50px 0;
+}
+
+.footer nav ul {
+    display: flex;
+    justify-content: center;
+    max-width: 320px;
+    /* quando dou uma largura tenho q usar "margin: 0 auto" para centralizar */
+    margin: 0 auto;
+}
+
+.footer nav ul li a {
+    color: #Fff;
+    font-weight: 500;
+    font-size: 2rem;
+    margin: 20px;
+    transition: 0.3s;
+}
+
+.footer nav ul li a:hover {
+    font-weight: 700;
+    color: #f9004d;
+}
+
+.footer .social i {
+    font-size: 2rem;
+    transition: 0.3s;
+}
+
+.footer .social a {
+    color: #Fff;
+    margin: 20px;
+}
+
+.footer .social a:hover {
+    color: #f9004d;
+}
