@@ -1,0 +1,42 @@
+@media(max-width: 1700px){
+    .projects .card{
+      height: 45%;
+      margin: 20px;
+      margin-left: 100px;
+      margin-top: 200px;
+    }
+
+}
+
+@media(max-width: 990px){
+    .card-projetos {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    .card-projetos .card {
+        margin: 60px
+    }
+}
+
+@media(max-width:820px){
+    .card-projetos .card {
+        margin: 35px
+    }
+}
+
+@media(max-width: 425px){
+    .card-projetos {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .card-projetos .card {
+        margin: 10px;
+    }
+}
